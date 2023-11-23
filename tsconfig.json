@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "./dist",
+    "target": "esnext",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "alwaysStrict": true, 
+    "allowUnreachableCode": false,
+    "noImplicitAny": true, 
+    "strictNullChecks": false, 
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true, 
+    "noUnusedLocals": true, 
+    "noUnusedParameters": true  
+  },
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "tests/**/*"
+  ]
+}

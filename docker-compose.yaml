@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  node-app:
+    build: .
+    image: censhare-transfer-service
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/src
+
+  mongodb:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: transfer-service-db
+
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data/db  
+
