@@ -1,0 +1,13 @@
+.DS_Store
+.git
+.vscode
+.*ignore
+.prettierrc
+.eslintrc.json
+example.env
+docker-compose*.yml
+Dockerfile*
+*.md
+build
+dist
+node_modules/

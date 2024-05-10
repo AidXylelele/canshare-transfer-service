@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  server:
+    image: censhare-api-image
+    container_name: censhare-api-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      APP_PORT: ${APP_PORT}
+      MONOG_DB_URI: ${MONOG_DB_URI}
+      ACCESS_SECRET: ${ACCESS_SECRET}
+      REFRESH_SECRET: ${REFRESH_SECRET}
+      ACCESS_EXPIRATION: ${ACCESS_EXPIRATION}
+      REFRESH_EXPIRATION: ${REFRESH_EXPIRATION}
+      CENSHARE_API_URL: ${CENSHARE_API_URL}
+      RABBIT_MQ_URI: ${RABBIT_MQ_URI}
+      HASH_SALT: ${HASH_SALT}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      WIX_REDIS_DB: ${WIX_REDIS_DB}
+      CENSHARE_REDIS_DB: ${CENSHARE_REDIS_DB}
+      ASSETS_REDIS_DB: ${ASSETS_REDIS_DB}
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    restart: unless-stopped
+    tty: true
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
